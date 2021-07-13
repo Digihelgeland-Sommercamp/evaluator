@@ -1,0 +1,32 @@
+{
+    "userId": 1,
+    "income": 100000,
+    "incomeType": "Skatt",
+    "monthlyIncome": [
+        12000,
+        13000,
+        10000
+    ],
+    "household": [
+        {
+            "userId": 2,
+            "income": 123,
+            "incomeType": "Monthly",
+            "monthlyIncome": [
+                12000,
+                13000,
+                10000
+            ]
+        },
+        {
+            "userId": 3,
+            "income": 234,
+            "incomeType": "Skatt",
+            "monthlyIncome": [
+                12000,
+                13000,
+                10000
+            ]
+        }
+    ]
+}
