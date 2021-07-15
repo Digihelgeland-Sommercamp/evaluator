@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: evaluatorservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: evaluatorservice
+  template:
+    metadata:
+      labels:
+        app: evaluatorservice
+    spec:
+      containers:
+      - name: evaluatorservice
+        image: askattilla/rfb-evaluator:512a5e0a126edd78dd548f6163f49fbe27e9b8b8
+        ports:
+        - containerPort: 5000
