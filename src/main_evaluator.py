@@ -17,11 +17,16 @@ class Evaluator():
             #     requirement = json.load(requriementFile)
 
             self._user = userData['userId']
-            self._householdIncome = userData['income'] if userData['incomeType'] == "Skatt" else self._getIncomeFromMonthly(userData['monthlyIncome'])
+            self._householdIncome = int(userData['income'])
+            
+            """ 
+            Facilitate potential monthly income
+
+            if userData['incomeType'] == "Skatt" else self._getIncomeFromMonthly(userData['monthlyIncome'])
             for person in userData['household']:
-                personMonthlyIncome = person['monthlyIncome']
-                personIncome = person['income'] if person['incomeType'] == "Skatt" else self._getIncomeFromMonthly(personMonthlyIncome)
-                self._householdIncome += personIncome
+                personIncome = int(person['income']) if person['incomeType'] == "Skatt" else self._getIncomeFromMonthly(person['monthlyIncome'])
+                self._householdIncome += personIncome 
+            """
             
             # Requirements
             self._incomeCap = 534000
@@ -30,7 +35,7 @@ class Evaluator():
     def _getIncomeFromMonthly(self, monthlyPayments):
         sum = 0
         for payment in monthlyPayments:
-            sum += payment
+            sum += int(payment)
         sum /= len(monthlyPayments)
         sum *= 12
         return sum

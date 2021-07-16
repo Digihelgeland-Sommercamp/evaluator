@@ -14,7 +14,7 @@ def info_view():
 
 @app.route('/evaluate', methods=['GET'])
 def evaluate():
-    request_data = request.get_json()
+    request_data = request.form.to_dict()
     if request_data != None:
         try:
             evaluator = Evaluator(request_data)
