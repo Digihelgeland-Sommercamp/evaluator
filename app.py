@@ -1,5 +1,6 @@
 from src.main_evaluator import Evaluator
 from flask import Flask, request, jsonify, Response
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -14,7 +15,8 @@ def info_view():
 
 @app.route('/evaluate', methods=['GET'])
 def evaluate():
-    request_data = request.form.to_dict()
+    request_data = request.get_json()
+    print(request_data)
     if request_data != None:
         try:
             evaluator = Evaluator(request_data)
@@ -30,4 +32,4 @@ def evaluate():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    serve(app, host='0.0.0.0', port=5000)
