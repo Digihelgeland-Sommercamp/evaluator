@@ -20,7 +20,7 @@
         },
         {
             "userId": 3,
-            "income": 234,
+            "income": 20000,
             "incomeType": "Skatt",
             "monthlyIncome": [
                 12000,

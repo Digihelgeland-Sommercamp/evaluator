@@ -32,6 +32,9 @@ class Evaluator():
             self._incomeCap = 534000
             self._maxPercentageToPay = 0.06
 
+            True
+        False
+
     def _getIncomeFromMonthly(self, monthlyPayments):
         sum = 0
         for payment in monthlyPayments:
