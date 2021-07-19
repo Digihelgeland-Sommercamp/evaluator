@@ -1,7 +1,7 @@
 from src.main_evaluator import Evaluator
 from flask import Flask, request, jsonify, Response
 from waitress import serve
-
+import json
 app = Flask(__name__)
 
 @app.route('/', methods=["GET"])
@@ -17,12 +17,16 @@ def info_view():
 def evaluate():
     request_data = request.get_json()
     print(request_data)
+
+    if not isinstance(request_data, dict):
+        request_data = json.loads(request_data)
+
     if request_data != None:
         try:
             evaluator = Evaluator(request_data)
             response = evaluator.evaluate()
             status_code = 200
-        except KeyError:
+        except KeyError or TypeError:
             response = "Faulty JSON. Please provide proper JSON in request body"
             status_code = 400
     else: 
