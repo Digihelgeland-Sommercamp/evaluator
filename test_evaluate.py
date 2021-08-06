@@ -14,7 +14,7 @@ class TestEvalute(unittest.TestCase):
         self._evaluator = eval.Evaluator(self.user_data)
         
         self.assertEqual(self._evaluator._user, 1, "User Id should be 1")
-        self.assertEqual(self._evaluator._householdIncome, 100000, "Household income should be 260k")
+        self.assertEqual(self._evaluator._householdIncome, 100000, "Household income should be 100k")
         self.assertEqual(self._evaluator._incomeCap, 534000, "Income cap should be 534000")
         self.assertEqual(self._evaluator._maxPercentageToPay, 0.06, "Max percentage should be 0.06")
     

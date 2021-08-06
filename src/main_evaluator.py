@@ -45,18 +45,21 @@ class Evaluator():
 
 
     def _evaluateFreeHours(self):
+        # TODO: gjelder kun året det fyller 2, 3, 4, 5
         if (self._householdIncome < self._incomeCap):
             return True
         return False
 
 
     def _evaluateMaxPay(self):
+    
         maxPay = self._maxPercentageToPay * self._householdIncome
         return round(maxPay, 2)
                 
         
     # Evaluate and dump result 
     def evaluate(self):
+        # TODO: inntekstgrunnlag
         data = {
             "valid": self._user != None,
             "userId": self._user,
