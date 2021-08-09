@@ -13,20 +13,8 @@ class Evaluator():
         if rawUserData != None:
             userData = rawUserData
 
-            # with open(rawRequirement) as requriementFile:
-            #     requirement = json.load(requriementFile)
-
             self._user = userData['userId']
-            self._householdIncome = int(userData['income'])
-            
-            """ 
-            Facilitate potential monthly income
-
-            if userData['incomeType'] == "Skatt" else self._getIncomeFromMonthly(userData['monthlyIncome'])
-            for person in userData['household']:
-                personIncome = int(person['income']) if person['incomeType'] == "Skatt" else self._getIncomeFromMonthly(person['monthlyIncome'])
-                self._householdIncome += personIncome 
-            """
+            self._householdIncome = int(userData['income'])         
             
             # Requirements
             self._incomeCap = 534000
@@ -52,7 +40,6 @@ class Evaluator():
 
 
     def _evaluateMaxPay(self):
-    
         maxPay = self._maxPercentageToPay * self._householdIncome
         return round(maxPay, 2)
                 
@@ -68,5 +55,3 @@ class Evaluator():
         }
 
         return json.dumps(data)
-
-   
