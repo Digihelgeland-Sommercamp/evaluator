@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: evaluatorservice
-        image: askattilla/rfb-evaluator:315e77eea7f3c8cc9fc5040b313c1b9b355b8215
+        image: askattilla/rfb-evaluator:db3ddeb1e737c191b0ce7af33de813836f6bca37
         ports:
         - containerPort: 5000
