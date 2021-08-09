@@ -1,12 +1,16 @@
 import json
     
 class Evaluator():
-    def __init__(self, rawUserData):
-        self._user = None
-        self._householdIncome = 0
+    def __init__(self, userID, income):
+        self._user = userID
+        self._householdIncome = int(income)
         self._incomeCap = 0
         self._maxPercentageToPay = 0.0
-        self._consumeData(rawUserData)
+        # self._consumeData(rawUserData)
+
+        # Requirements
+        self._incomeCap = 534000
+        self._maxPercentageToPay = 0.06
 
 
     def _consumeData(self, rawUserData):
@@ -15,10 +19,6 @@ class Evaluator():
 
             self._user = userData['userId']
             self._householdIncome = int(userData['income'])         
-            
-            # Requirements
-            self._incomeCap = 534000
-            self._maxPercentageToPay = 0.06
 
             True
         False

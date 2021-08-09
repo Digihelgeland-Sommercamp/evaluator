@@ -13,25 +13,25 @@ def info_view():
     }
     return jsonify(output)
 
-@app.route('/evaluate', methods=['GET'])
-def evaluate():
-    request_data = request.get_json()
-    print(request_data)
+@app.route('/evaluate/<userID>/<income>', methods=['GET'])
+def evaluate(userID, income):
+    # request_data = request.get_json()
+    # print(request_data)
 
-    if not isinstance(request_data, dict):
-        request_data = json.loads(request_data)
+    # if not isinstance(request_data, dict):
+    #     request_data = json.loads(request_data)
 
-    if request_data != None:
-        try:
-            evaluator = Evaluator(request_data)
-            response = evaluator.evaluate()
-            status_code = 200
-        except KeyError or TypeError:
-            response = "Faulty JSON. Please provide proper JSON in request body"
-            status_code = 400
-    else: 
-        response = "No JSON data in body. Please provide proper JSON in request body"
+    # if request_data != None:
+    try:
+        evaluator = Evaluator(userID, income)
+        response = evaluator.evaluate()
+        status_code = 200
+    except KeyError or TypeError:
+        response = "Faulty JSON. Please provide proper JSON in request body"
         status_code = 400
+    # else: 
+    #     response = "No JSON data in body. Please provide proper JSON in request body"
+    #     status_code = 400
     return Response(response, status_code)
 
 
