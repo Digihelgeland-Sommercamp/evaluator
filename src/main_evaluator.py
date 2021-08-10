@@ -6,22 +6,10 @@ class Evaluator():
         self._householdIncome = int(income)
         self._incomeCap = 0
         self._maxPercentageToPay = 0.0
-        # self._consumeData(rawUserData)
 
         # Requirements
         self._incomeCap = 534000
         self._maxPercentageToPay = 0.06
-
-
-    def _consumeData(self, rawUserData):
-        if rawUserData != None:
-            userData = rawUserData
-
-            self._user = userData['userId']
-            self._householdIncome = int(userData['income'])         
-
-            True
-        False
 
     def _getIncomeFromMonthly(self, monthlyPayments):
         sum = 0
