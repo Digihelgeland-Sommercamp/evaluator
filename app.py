@@ -8,30 +8,20 @@ app = Flask(__name__)
 def info_view():
     """List of routes for this API."""
     output = {
-        'info': 'GET /',
-        'evaluate': 'GET /evaluate'
+        'evaluate': 'GET /evaluate/<userID>/<income>/<childBirthYear>'
     }
     return jsonify(output)
 
-@app.route('/evaluate/<userID>/<income>', methods=['GET'])
-def evaluate(userID, income):
-    # request_data = request.get_json()
-    # print(request_data)
-
-    # if not isinstance(request_data, dict):
-    #     request_data = json.loads(request_data)
-
-    # if request_data != None:
+@app.route('/evaluate/<userID>/<income>/<childBirthYear>', methods=['GET'])
+def evaluate(userID, income, childBirthYear):
     try:
-        evaluator = Evaluator(userID, income)
+        evaluator = Evaluator(userID, income, childBirthYear)
         response = evaluator.evaluate()
         status_code = 200
     except KeyError or TypeError:
         response = "Faulty JSON. Please provide proper JSON in request body"
         status_code = 400
-    # else: 
-    #     response = "No JSON data in body. Please provide proper JSON in request body"
-    #     status_code = 400
+
     return Response(response, status_code)
 
 
