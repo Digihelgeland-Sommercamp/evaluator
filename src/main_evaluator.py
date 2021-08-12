@@ -15,15 +15,6 @@ class Evaluator():
         self._incomeCap = 583650
         self._maxPercentageToPay = 0.06
 
-    
-    # def _getIncomeFromMonthly(self, monthlyPayments):
-    #     sum = 0
-    #     for payment in monthlyPayments:
-    #         sum += int(payment)
-    #     sum /= len(monthlyPayments)
-    #     sum *= 12
-    #     return sum
-
     # Evaluates if the household qualifies for "gratis kjernetid"
     def _evaluateFreeHours(self):
         # Returns false if the child does not become 2, 3, 4 or 5 years old this year
@@ -45,7 +36,6 @@ class Evaluator():
         
     # Evaluate and dump result 
     def evaluate(self):
-        # TODO: inntekstgrunnlag
         data = {
             "valid": self._user != None,
             "userId": self._user,
