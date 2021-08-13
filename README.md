@@ -7,7 +7,7 @@ The evaluator has no couplings, but is designed with the needs of "Redusert fore
 ## API
 Every route can be found in [app.py](https://github.com/Digihelgeland-Sommercamp/evaluator/blob/main/app.py) 
 
-* [GET] [/evaluate/\<userID>/\<income>](https://app.swaggerhub.com/apis/Johannes-s-b/Evaluator/0.1)
+* [GET] [/evaluate/\<userID>/\<income>/\<childBirthYear>](https://app.swaggerhub.com/apis/Johannes-s-b/Evaluator/0.1)
    * userID is should be a unique token
 
 ## UML
