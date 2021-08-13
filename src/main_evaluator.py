@@ -9,7 +9,7 @@ class Evaluator():
         self._householdIncome = int(income)
         self._incomeCap = 0
         self._maxPercentageToPay = 0.0
-        self.birth_year = datetime.strptime(child_birth_year, '%Y').year
+        self.birth_year = datetime.strptime(child_birth_year, '%Y-%m-%d').year
 
         # Requirements
         self._incomeCap = 583650
@@ -28,11 +28,9 @@ class Evaluator():
 
         return False
 
-
     def _evaluateMaxPay(self):
         maxPay = self._maxPercentageToPay * self._householdIncome
         return round(maxPay, 2)
-                
         
     # Evaluate and dump result 
     def evaluate(self):
